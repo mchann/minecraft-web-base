@@ -1,18 +1,24 @@
 <?php 
-include 'koneksi.php';
+require 'functions.php';
 if ( isset($_POST["submit"])){
-    $nama_base = $_POST["nama_base"];
-    $deskripsi = $_POST["deskripsi"];
-    $builder = $_POST["builder"];
-    $gambar1 = $_POST["gambar_satu"];
-    $gambar2 = $_POST["gambar_dua"];
-    $tgl_upload = $_POST["tgl_upload"];
 
-    $query = "INSERT INTO base VALUES
-                ('','$nama_base','$deskripsi','$builder','$gambar1','$gambar2,'$tgl_upload')
-                ";
-    mysqli_query($koneksi, $query);
+    if (tambah($_POST) > 0 ){
+        echo "
+        <script>
+            alert('data berhasil ditambah');
+            document.location.href = 'base.php';
+        </script>
+        ";
+    }else{
+        echo " <script>
+            alert('data gagal ditambah');
+            document.location.href = 'base.php';
+        </script>";
+    }
+
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +46,7 @@ if ( isset($_POST["submit"])){
 <body>
   <div class="container mt-5">
     <div class="row justify-content-center">
-      <div class="col-md-6">
+      <div class="col-md-7">
         <div class="card">
           <div class="card-header">
             Form Input Base Minecraft
@@ -59,10 +65,7 @@ if ( isset($_POST["submit"])){
                 <label for="builder" class="form-label">Builder</label>
                 <input type="text" class="form-control" id="builder" name="builder" required>
               </div>
-              <div class="mb-3">
-                <label for="tgl_upload" class="form-label">Tanggal Upload</label>
-                <input type="date" class="form-control" id="tgl_upload" name="tgl_upload" required>
-              </div>
+              
               <div class="mb-3">
                 <label for="gambar1" class="form-label">Gambar 1</label>
                 <input type="file" class="form-control" id="gambar1" name="gambar1" accept="image/*" required>
@@ -70,6 +73,10 @@ if ( isset($_POST["submit"])){
               <div class="mb-3">
                 <label for="gambar2" class="form-label">Gambar 2</label>
                 <input type="file" class="form-control" id="gambar2" name="gambar2" accept="image/*" required>
+              </div>
+              <div class="mb-3">
+                <label for="tgl_upload" class="form-label">Tanggal Upload</label>
+                <input type="date" class="form-control" id="tgl_upload" name="tgl_upload" required>
               </div>
               <button type="submit" class="btn btn-primary" name="submit">Simpan</button>
             </form>

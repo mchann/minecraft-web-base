@@ -87,16 +87,17 @@
                                     <td><?php echo $d['nama_base']; ?></td>
                                     <td><?php echo $d['deskripsi']; ?></td>
                                     <td><?php echo $d['builder']; ?></td>
-                                    <td><img src="<?php echo $d['gambar_satu']; ?>" class="img-fluid" style="width: 300px; height: 100px;" alt="Gambar Base"></td>
-                                    <td><img src="<?php echo $d['gambar_dua']; ?>" class="img-fluid" style="width: 300px; height: 100px;" alt="Gambar Base"></td>
+                                    <td><img src="img/<?php echo $d['gambar_satu']; ?>" class="img-fluid" width="80px" alt="Gambar Base"></td>
+                                    <td><img src="img/<?php echo $d['gambar_dua']; ?>" class="img-fluid" width="80px" alt="Gambar Base"></td>
                                     <td><?php echo $d['tgl_upload']; ?></td>
                                     <td>
                                         <a href="#" class="btn btn-primary btn-sm">
                                             <i class="fas fa-edit"></i> Edit
                                         </a>
-                                        <button class="btn btn-danger btn-sm">
-                                            <i class="fas fa-trash-alt"></i> Delete
-                                        </button>
+                                        <a href="hapus.php?id_base=<?= $d['id_base']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Dihapus nih ?');">
+                                            <i class="fas fa-trash-alt"></i> Hapus
+                                        </a>
+                                       
                                     </td>
                                 </tr>
                             <?php
