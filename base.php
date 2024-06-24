@@ -43,10 +43,10 @@
         <div class="row">
             <div class="col">
             <br>
-            
+            <br>
             <h2 class="text-center mb-1 outlined-text" >Tabel Base Minecraft</h2>
             <a href="#" class="btn btn-primary" id="tambah1">Tambah Base</a>
-                <br>
+                <!-- <br> -->
                 <div class="table-responsive">
                     <br>
                     <table class="table table-danger table-striped">
@@ -65,7 +65,7 @@
                         </thead>
                         <tbody>
                             <?php 
-                            $batas = 4;
+                            $batas = 5;
                             $halaman = isset($_GET['halaman']) ? (int)$_GET['halaman'] : 1;
                             $halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0;    
 
@@ -91,7 +91,7 @@
                                     <td><img src="img/<?php echo $d['gambar_dua']; ?>" class="img-fluid" width="80px" alt="Gambar Base"></td>
                                     <td><?php echo $d['tgl_upload']; ?></td>
                                     <td>
-                                        <a href="#" class="btn btn-primary btn-sm">
+                                        <a href="ubahbase.php?id_base=<?= $d['id_base']; ?>" class="btn btn-primary btn-sm">
                                             <i class="fas fa-edit"></i> Edit
                                         </a>
                                         <a href="hapus.php?id_base=<?= $d['id_base']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Dihapus nih ?');">
