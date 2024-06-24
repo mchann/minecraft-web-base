@@ -1,3 +1,20 @@
+<?php 
+include 'koneksi.php';
+if ( isset($_POST["submit"])){
+    $nama_base = $_POST["nama_base"];
+    $deskripsi = $_POST["deskripsi"];
+    $builder = $_POST["builder"];
+    $gambar1 = $_POST["gambar_satu"];
+    $gambar2 = $_POST["gambar_dua"];
+    $tgl_upload = $_POST["tgl_upload"];
+
+    $query = "INSERT INTO base VALUES
+                ('','$nama_base','$deskripsi','$builder','$gambar1','$gambar2,'$tgl_upload')
+                ";
+    mysqli_query($koneksi, $query);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +24,18 @@
   <!-- Integrasi Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="gambar/logo.png">
+
+  <style>
+        body {
+            /* background-color: #343a40; Warna latar belakang */
+            background-image: url(./gambar/besu.png);
+            background-size: cover;
+            overflow: hidden;
+        }
+  
+    </style>
+
+
 </head>
 <body>
   <div class="container mt-5">
@@ -17,7 +46,7 @@
             Form Input Base Minecraft
           </div>
           <div class="card-body">
-            <form action="process.php" method="POST" enctype="multipart/form-data">
+            <form action="" method="POST" enctype="multipart/form-data">
               <div class="mb-3">
                 <label for="nama_base" class="form-label">Nama Base</label>
                 <input type="text" class="form-control" id="nama_base" name="nama_base" required>
@@ -42,7 +71,7 @@
                 <label for="gambar2" class="form-label">Gambar 2</label>
                 <input type="file" class="form-control" id="gambar2" name="gambar2" accept="image/*" required>
               </div>
-              <button type="submit" class="btn btn-primary">Simpan</button>
+              <button type="submit" class="btn btn-primary" name="submit">Simpan</button>
             </form>
           </div>
         </div>
@@ -54,3 +83,38 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+<style>
+    body {
+      background-color: #343a40; /* Ubah warna latar belakang body menjadi gelap */
+      color: #fff; /* Ubah warna teks menjadi putih */
+    }
+
+    .card {
+      background-color: #454d55; /* Ubah warna latar belakang card menjadi gelap */
+      color: #fff; /* Ubah warna teks card menjadi putih */
+    }
+
+    .form-control {
+      background-color: #495057; /* Ubah warna latar belakang form input */
+      color: #fff; /* Ubah warna teks form input */
+      border-color: #6c757d; /* Ubah warna border input */
+    }
+
+    .form-control:focus {
+      background-color: #495057; /* Ubah warna latar belakang form input saat fokus */
+      color: #fff; /* Ubah warna teks form input saat fokus */
+      border-color: #6c757d; /* Ubah warna border input saat fokus */
+      box-shadow: none; /* Hilangkan shadow saat fokus */
+    }
+
+    .btn-primary {
+      background-color: #007bff; /* Ubah warna tombol menjadi biru */
+      border-color: #007bff; /* Ubah warna border tombol */
+    }
+
+    .btn-primary:hover {
+      background-color: #0069d9; /* Ubah warna tombol saat hover */
+      border-color: #0062cc; /* Ubah warna border tombol saat hover */
+    }
+  </style>
