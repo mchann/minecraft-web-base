@@ -11,14 +11,13 @@
     <link rel="icon" type="image/x-icon" href="gambar/logo.png">
     <style>
         body {
-            /* background-color: #343a40; Warna latar belakang */
             background-image: url(./gambar/besu.png);
             background-size: cover;
             overflow: hidden;
         }
         .table-dark th {
-            background-color: #343a40; /* Warna latar belakang header tabel */
-            color: #fff; /* Warna teks pada header tabel */
+            background-color: #343a40; 
+            color: #fff; 
         }
 
         .outlined-text {
@@ -45,7 +44,9 @@
             <br>
             <br>
             <h2 class="text-center mb-1 outlined-text" >Tabel Base Minecraft</h2>
+            <a href="#" class="btn btn-light blue" id="tambah2"><</a>
             <a href="#" class="btn btn-primary" id="tambah1">Tambah Base</a>
+
                 <!-- <br> -->
                 <div class="table-responsive">
                     <br>
@@ -133,6 +134,10 @@
     <script>
          document.getElementById("tambah1").addEventListener("click", function() {
       window.location.href = "tambahbase.php";
+    });
+
+    document.getElementById("tambah2").addEventListener("click", function() {
+      window.location.href = "minecraft.html";
     });
         </script>
 </body>
